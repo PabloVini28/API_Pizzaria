@@ -4,3 +4,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/restaurante?createDatabaseIfNotExist=true
     username: postgres
     password: 28112003
+
+  jpa:
+    show-sql: true
+    
