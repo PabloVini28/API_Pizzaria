@@ -1,0 +1,1 @@
+alter table pizza add categoria varchar(20);

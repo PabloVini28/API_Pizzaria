@@ -27,6 +27,8 @@ public class Pizza {
     private Sabor sabor;
     @Enumerated(EnumType.STRING)
     private Tamanho tamanho;
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
     
 
 }

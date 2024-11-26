@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.web.bind.annotation.GetMapping;
+
+import jakarta.validation.Valid;
 
 
 
@@ -20,7 +23,7 @@ public class PizzaController {
     private final PizzaService pizzaService;
 
     @PostMapping
-    public void cadastrar(@RequestBody PizzaDTO dto){
+    public void cadastrar(@Valid @RequestBody PizzaDTO dto){
      pizzaService.criarPizza(dto);   
     }
 
