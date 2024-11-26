@@ -1,5 +1,8 @@
 package com.restaurantepablo.restaurante.pizza;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,12 @@ public class PizzaService {
 
         // convertendo pizza-entidade em dto
         return modelMapper.map(pizza, PizzaDTO.class);
+    }
+
+    public List<PizzaDTO> buscarTodos(){
+        //convertendo lista em entidade
+        return pizzaRepository.findAll().stream().map(p -> modelMapper.map(p,PizzaDTO.class)).
+        collect(Collectors.toList());
     }
 
     
