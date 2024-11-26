@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequestMapping(name = "/pizzas")
+@RequestMapping("/pizzas")
 @RequiredArgsConstructor
 public class PizzaController {
 
@@ -20,7 +20,7 @@ public class PizzaController {
      pizzaService.criarPizza(dto);   
     }
 
-    
+
 
 
 
