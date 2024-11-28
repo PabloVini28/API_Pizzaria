@@ -11,11 +11,16 @@ public class PizzaDTO {
 
     @NotBlank
     private String nome;
+
     private boolean disponivel;
+
     @Positive
     private double preco;
+
     private Sabor sabor;
+
     private Tamanho tamanho;
+    
     @NotBlank
     private Categoria categoria;
 }
