@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -42,6 +43,10 @@ public class PizzaService {
         pizza.setId(id);
         pizza = pizzaRepository.save(pizza);
         return modelMapper.map(pizza, PizzaDTO.class);
+    }
+
+    public void excluir(Long id) {
+        pizzaRepository.deleteById(id);
     }
 
     

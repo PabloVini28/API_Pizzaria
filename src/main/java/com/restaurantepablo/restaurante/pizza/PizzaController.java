@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -40,7 +41,7 @@ public class PizzaController {
     }
 
     @GetMapping("/{id}")
-    public PizzaDTO buscarPorID(@PathVariable Long id) {
+    public PizzaDTO buscarPorID(@PathVariable @NotNull Long id) {
         return pizzaService.buscarPorID(id);
     }
 
@@ -50,7 +51,11 @@ public class PizzaController {
         return pizzaAtualizada;
     }
     
-
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable @NotNull Long id){
+        pizzaService.excluir(id);
+    }
+    
 
 
 
