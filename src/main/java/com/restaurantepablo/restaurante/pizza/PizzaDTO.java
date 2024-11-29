@@ -1,6 +1,7 @@
 package com.restaurantepablo.restaurante.pizza;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PizzaDTO {
+
+    private Long id;
 
     @NotBlank
     private String nome;
@@ -21,6 +24,6 @@ public class PizzaDTO {
 
     private Tamanho tamanho;
     
-    @NotBlank
+    @NotNull
     private Categoria categoria;
 }

@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -28,6 +29,19 @@ public class PizzaService {
         //convertendo lista em entidade
         return pizzaRepository.findAll().stream().map(p -> modelMapper.map(p,PizzaDTO.class)).
         collect(Collectors.toList());
+    }
+
+    public PizzaDTO buscarPorID(Long id) {
+        Pizza pizza = pizzaRepository.findById(id).orElseThrow(()-> new EntityNotFoundException());
+        //converter entidade em dto
+        return modelMapper.map(pizza, PizzaDTO.class);
+    }
+
+    public PizzaDTO atualizarPizza(Long id,PizzaDTO dto) {
+        Pizza pizza = modelMapper.map(dto, Pizza.class);
+        pizza.setId(id);
+        pizza = pizzaRepository.save(pizza);
+        return modelMapper.map(pizza, PizzaDTO.class);
     }
 
     

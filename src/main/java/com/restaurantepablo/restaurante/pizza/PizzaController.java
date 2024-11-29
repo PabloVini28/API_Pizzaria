@@ -10,8 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
+
+
 
 
 
@@ -32,7 +39,17 @@ public class PizzaController {
         return pizzaService.buscarTodos();
     }
 
+    @GetMapping("/{id}")
+    public PizzaDTO buscarPorID(@PathVariable Long id) {
+        return pizzaService.buscarPorID(id);
+    }
 
+    @PutMapping("/{id}")
+    public PizzaDTO atualizar(@PathVariable @NotNull Long id, @RequestBody @Valid PizzaDTO dto) {
+        PizzaDTO pizzaAtualizada = pizzaService.atualizarPizza(id,dto);
+        return pizzaAtualizada;
+    }
+    
 
 
 
