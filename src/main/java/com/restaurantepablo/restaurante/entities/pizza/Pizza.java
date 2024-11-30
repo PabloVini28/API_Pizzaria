@@ -1,4 +1,4 @@
-package com.restaurantepablo.restaurante.pizza;
+package com.restaurantepablo.restaurante.entities.pizza;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

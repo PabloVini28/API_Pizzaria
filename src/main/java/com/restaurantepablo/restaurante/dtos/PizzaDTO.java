@@ -1,4 +1,8 @@
-package com.restaurantepablo.restaurante.pizza;
+package com.restaurantepablo.restaurante.dtos;
+
+import com.restaurantepablo.restaurante.entities.pizza.Categoria;
+import com.restaurantepablo.restaurante.entities.pizza.Sabor;
+import com.restaurantepablo.restaurante.entities.pizza.Tamanho;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

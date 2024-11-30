@@ -1,13 +1,15 @@
-package com.restaurantepablo.restaurante.pizza;
-
-import java.util.List;
-import java.util.stream.Collectors;
+package com.restaurantepablo.restaurante.services;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import com.restaurantepablo.restaurante.dtos.PizzaDTO;
+import com.restaurantepablo.restaurante.entities.pizza.Pizza;
+import com.restaurantepablo.restaurante.repositories.PizzaRepository;
+
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -26,10 +28,9 @@ public class PizzaService {
         return modelMapper.map(pizza, PizzaDTO.class);
     }
 
-    public List<PizzaDTO> buscarTodos(){
+    public Page<PizzaDTO> buscarTodos(Pageable paginacao){
         //convertendo lista em entidade
-        return pizzaRepository.findAll().stream().map(p -> modelMapper.map(p,PizzaDTO.class)).
-        collect(Collectors.toList());
+        return pizzaRepository.findAll(paginacao).map(p->modelMapper.map(p,PizzaDTO.class));
     }
 
     public PizzaDTO buscarPorID(Long id) {

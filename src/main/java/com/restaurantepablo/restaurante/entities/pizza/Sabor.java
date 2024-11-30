@@ -1,4 +1,4 @@
-package com.restaurantepablo.restaurante.pizza;
+package com.restaurantepablo.restaurante.entities.pizza;
 
 public enum Sabor {
     CALABRESA,
